@@ -1,8 +1,8 @@
 {
-  "name": "zigbee2mqtt-adapter",
-  "display_name": "zigbee2mqtt adapter",
-  "version": "0.2.6",
-  "description": "Brings all your zigbee devices to the gateway through mqtt bridge",
+  "name": "keenetic-adapter",
+  "display_name": "keenetic adapter",
+  "version": "0.1.0",
+  "description": "Brings all your wifi devices to WoT Gateway",
   "main": "index.js",
   "keywords": [
     "mozilla",
@@ -10,28 +10,32 @@
     "adapter",
     "virtual"
   ],
-  "homepage": "https://github.com/kabbi/zigbee2mqtt-adapter",
+  "homepage": "https://github.com/kabbi/keenetic-adapter",
   "author": "Mozilla IoT",
   "license": "MPL-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kabbi/zigbee2mqtt-adapter.git"
+    "url": "https://github.com/kabbi/keenetic-adapter.git"
   },
   "bugs": {
-    "url": "https://github.com/kabbi/zigbee2mqtt-adapter/issues"
+    "url": "https://github.com/kabbi/keenetic-adapter/issues"
   },
   "dependencies": {
-    "mqtt": "^2.18.8"
+    "crypto-js": "^3.1.9-1",
+    "fast-xml-parser": "^3.13.0",
+    "lodash": "^4.17.15",
+    "node-fetch": "^2.6.0"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
-    "sqlite3": "^4.0.6"
+    "sqlite3": "^4.1.0"
   },
   "files": [
     "LICENSE",
     "SHA256SUMS",
     "index.js",
-    "zigbee2mqtt-adapter.js"
+    "keenetic-adapter.js",
+    "digest-fetch.js"
   ],
   "moziot": {
     "api": {
@@ -41,19 +45,24 @@
     "plugin": true,
     "exec": "{nodeLoader} {path}",
     "config": {
-      "mqtt": "mqtt://localhost",
-      "prefix": "zigbee2mqtt"
+      "url": "http://192.168.1.1/ci",
+      "username": "username",
+      "password": "password"
     },
     "schema": {
       "type": "object",
       "properties": {
-        "mqtt": {
+        "url": {
           "type": "string",
-          "description": "Mosquitto or other mqtt server host/port to connect to"
+          "description": "Root url of your router"
         },
-        "prefix": {
+        "username": {
           "type": "string",
-          "description": "Mqtt topic prefix for zigbee2mqtt"
+          "description": "Username"
+        },
+        "password": {
+          "type": "string",
+          "description": "Password"
         }
       }
     }

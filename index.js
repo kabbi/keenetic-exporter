@@ -1,5 +1,5 @@
 /**
- * index.js - Loads the zigbee2mqtt adapter
+ * index.js - Loads the keenetic adapter
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -8,6 +8,6 @@
 
 'use strict';
 
-const loadAdapter = require('./zigbee2mqtt-adapter');
+const loadAdapter = require('./keenetic-adapter');
 
 module.exports = loadAdapter;
