@@ -1,38 +1,8 @@
-Zigbee2Mqtt Adapter
--------------------
+Keenetic Exporter
+-----------------
 
-This adapter for [WebThings Gateway by Mozilla](https://iot.mozilla.org/gateway/) allows to use awesome [zigbee2mqtt](http://zigbee2mqtt.io/) project to support lots of zigbee devices on a cheap `cc2531` usb stick zigbee dongle.
+Present devices from your home network as WoT things. Now only presents `ip`, `rssi` and `online` properties. You can use this to automate some smart house workflows depending on network status of your portable devices.
 
-Currently supported devices:
-- Aqara ZigBee Light Bulb
-- Xiaomi Magnet Sensor
-- Xiaomi Magic Cube
+Only tested with `Keenetic DSL` router.
 
-You can add new ones to `devices.js` like this:
-
-```js
-{
-  'lumi.sensor_magnet': {
-    name: 'Xiaomi Magnet Contact Sensor',
-    '@type': ['BinarySensor'],
-    properties: {
-      battery: {
-        type: 'integer',
-        unit: 'percent',
-        minimum: 0,
-        maximum: 100,
-        readOnly: true,
-      },
-      linkquality: {
-        type: 'integer',
-        readOnly: true,
-      },
-      contact: {
-        type: 'boolean',
-        '@type': 'BooleanProperty',
-        readOnly: true,
-      },
-    },
-  },
-}
-```
+!(some idea of what this does)[./screenshot.png]
