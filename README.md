@@ -5,4 +5,4 @@ Present devices from your home network as WoT things. Now only presents `ip`, `r
 
 Only tested with `Keenetic DSL` router.
 
-!(some idea of what this does)[./screenshot.png]
+![some idea of what this does](./screenshot.png)
